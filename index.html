@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="assets\css\styles.css">
+    <script type="text/javascript" src="assets\js\libs\paperjs-v0.11.5\dist\paper-full.js"></script>
+    <!-- Define inlined PaperScript associate it with myCanvas -->
+    <script type="text/paperscript" canvas="myCanvas">
+    for (var x = 0; x < 1000; x += 100){
+      for(var y = 0; y < 1000; y += 100){
+        var circle1 = new Path.Circle({
+            center: [x,y],
+            radius: 15
+        });
+        circle1.fillColor = {
+        gradient: {
+            stops: [['yellow', 0.05], ['red', 0.2], ['black', 1]],
+            radial: true
+        },
+        origin: circle1.position,
+        destination: circle1.bounds.rightCenter
+        };
+      }
+    }
+
+    </script>
+    <meta charset="utf-8">
+    <title>Circles</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" resize></canvas>
+
+  </body>
+</html>
